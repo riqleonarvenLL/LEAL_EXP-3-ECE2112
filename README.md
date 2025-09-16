@@ -104,6 +104,8 @@ Model	cyl	gear
 18	Honda Civic	4	4
 28	Ford Pantera L	8	5
 
+```
+
 ## Personal Challenges from this Experiment
 
 I encountered some confusion when trying to save individual code files as `.py` from the notebook. Using **File >> Save Notebook As >>** typically saves the entire notebook as a single file, rather than separate Python scripts for each problem.
