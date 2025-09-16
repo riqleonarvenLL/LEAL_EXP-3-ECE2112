@@ -31,8 +31,7 @@ cars = pd.read_csv("cars.csv")
 p1 = pd.concat([cars.head(), cars.tail()])
 # Display the result
 print(p1)
-
-```Output```
+####Output:
 
                 Model   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  \
 0           Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1   
@@ -58,4 +57,67 @@ print(p1)
 30     5     8  
 31     4     2  
 ```
+#### 🚗 PROBLEM 2: Save your file as `Surname_Pandas-P2.py`
+
+# 📌 Using the DataFrame `cars` from Problem 1,
+# extract the following information using subsetting, slicing, and indexing operations. 🧪🧠
+Let me know if you'd like help filling in specific subsetting examples or cleaning up your full code!
+
+```python
+import pandas as pd  # Load the pandas library
+cars = pd.read_csv("cars.csv")  # Read the cars.csv file
+# Show the first 5 rows of only the odd-numbered columns (0, 2, 4, ...)
+odd_columns = cars.iloc[:, ::2]  # Get every second column starting from the first
+print(odd_columns.head())  # Show the first 5 rows
+####Output:
+         Model  cyl   hp     wt  vs  gear
+0          Mazda RX4    6  110  2.620   0     4
+1      Mazda RX4 Wag    6  110  2.875   0     4
+2         Datsun 710    4   93  2.320   1     4
+3     Hornet 4 Drive    6  110  3.215   1     3
+4  Hornet Sportabout    8  175  3.440   0     3
+```
+```python
+#part b the Model is 'Mazda RX4'
+mazda_rx4 = cars.loc[cars['Model'] == 'Mazda RX4']
+print(mazda_rx4)
+####Output:
+  Model   mpg  cyl   disp   hp  drat    wt   qsec  vs  am  gear  carb
+0  Mazda RX4  21.0    6  160.0  110   3.9  2.62  16.46   0   1     4     4
+```
+```python
+#part c the model is 'Camaro Z28'
+cars.loc[cars['Model'] == 'Camaro Z28', ['Model', 'cyl']]
+####Output:
+	Model	cyl
+23	Camaro Z28	8
+```
+```python
+#part d
+# set a tuple of specific car models to filter
+models = ('Mazda RX4 Wag', 'Ford Pantera L', 'Honda Civic')
+# filter rows where 'Model' is one of the models in the tuple, and select relevant columns
+cars.loc[cars['Model'].isin(models), ['Model', 'cyl', 'gear']]
+####Output:
+Model	cyl	gear
+1	Mazda RX4 Wag	6	4
+18	Honda Civic	4	4
+28	Ford Pantera L	8	5
+
+## Personal Challenges from this Experiment
+
+I encountered some confusion when trying to save individual code files as `.py` from the notebook. Using **File >> Save Notebook As >>** typically saves the entire notebook as a single file, rather than separate Python scripts for each problem.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
